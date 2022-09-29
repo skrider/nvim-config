@@ -117,6 +117,12 @@ else
   vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
 
+if utils.executable("texlab") then
+  lspconfig.texlab.setup{}
+else
+  vim.notify("texlab not found!", vim.log.levels.WARN, { title = "Nvim-config" })
+end
+
 -- if utils.executable('pyright') then
 --   lspconfig.pyright.setup{
 --     on_attach = custom_attach,

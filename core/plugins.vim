@@ -191,7 +191,7 @@ let g:vim_markdown_conceal = 1
 
 " Disable math tex conceal and syntax highlight
 let g:tex_conceal = ''
-let g:vim_markdown_math = 0
+let g:vim_markdown_math = 1
 
 " Support front matter of various format
 let g:vim_markdown_frontmatter = 1  " for YAML format

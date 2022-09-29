@@ -57,14 +57,12 @@ packer.startup {
     -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
     use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] }
 
-    if vim.g.is_mac then
-      use {
-        "nvim-treesitter/nvim-treesitter",
-        event = "BufEnter",
-        run = ":TSUpdate",
-        config = [[require('config.treesitter')]],
-      }
-    end
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      event = "BufEnter",
+      run = ":TSUpdate",
+      config = [[require('config.treesitter')]],
+    }
 
     -- Python indent (follows the PEP8 style)
     use { "Vimjas/vim-python-pep8-indent", ft = { "python" } }
@@ -190,8 +188,8 @@ packer.startup {
     use { "honza/vim-snippets", after = "ultisnips" }
 
     -- (sk) Pandoc
-    use { "vim-pandoc/vim-pandoc", event = "VimEnter" }
-    use { "vim-pandoc/vim-pandoc-syntax", event = "VimEnter" }
+    use { "vim-pandoc/vim-pandoc", ft = { "tex" } }
+    use { "vim-pandoc/vim-pandoc-syntax", ft = { "tex" } }
 
     -- Automatic insertion and deletion of a pair of characters
     use { "Raimondi/delimitMate", event = "InsertEnter" }
@@ -285,10 +283,8 @@ packer.startup {
     -- Add indent object for vim (useful for languages like Python)
     use { "michaeljsmith/vim-indent-object", event = "VimEnter" }
 
-    -- Only use these plugin on Windows and Mac and when LaTeX is installed
-    if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
-      use { "lervag/vimtex", ft = { "tex" } }
-    end
+    -- Vimtex
+    use { "lervag/vimtex", ft = { "tex" } }
 
     -- Since tmux is only available on Linux and Mac, we only enable these plugins
     -- for Linux and Mac
