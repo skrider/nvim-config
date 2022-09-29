@@ -129,6 +129,9 @@ packer.startup {
     use { "EdenEast/nightfox.nvim", opt = true }
     use { "rebelot/kanagawa.nvim", opt = true }
     use { "catppuccin/nvim", as = "catppuccin", opt = true }
+    use { "ericbn/vim-solarized", opt = true }
+    use { "ishan9299/nvim-solarized-lua", opt = true }
+    use { "Abstract-IDE/Abstract-cs", opt = true }
 
     use { "kyazdani42/nvim-web-devicons", event = "VimEnter" }
 
@@ -185,6 +188,10 @@ packer.startup {
     -- Snippet engine and snippet template
     use { "SirVer/ultisnips", event = "InsertEnter" }
     use { "honza/vim-snippets", after = "ultisnips" }
+
+    -- (sk) Pandoc
+    use { "vim-pandoc/vim-pandoc", event = "VimEnter" }
+    use { "vim-pandoc/vim-pandoc-syntax", event = "VimEnter" }
 
     -- Automatic insertion and deletion of a pair of characters
     use { "Raimondi/delimitMate", event = "InsertEnter" }
@@ -252,22 +259,13 @@ packer.startup {
     -- Faster footnote generation
     use { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } }
 
+    -- Pandoc
+
     -- Vim tabular plugin for manipulate tabular, required by markdown plugins
     use { "godlygeek/tabular", cmd = { "Tabularize" } }
 
     -- Markdown JSON header highlight plugin
     use { "elzr/vim-json", ft = { "json", "markdown" } }
-
-    -- Markdown previewing (only for Mac and Windows)
-    if vim.g.is_win or vim.g.is_mac then
-      use {
-        "iamcco/markdown-preview.nvim",
-        run = function()
-          fn["mkdp#util#install"]()
-        end,
-        ft = { "markdown" },
-      }
-    end
 
     use { "folke/zen-mode.nvim", cmd = "ZenMode", config = [[require('config.zen-mode')]] }
 

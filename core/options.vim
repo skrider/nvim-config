@@ -178,3 +178,20 @@ set diffopt+=internal,indent-heuristic,algorithm:histogram
 
 set nowrap  " do no wrap
 set noruler
+
+" skrider options
+syn region math start=/\$\$/ end=/\$\$/
+syn match math '\$[^$].\{-}\$'
+
+set background=light
+
+" pandoc
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#modules#disabled = ["folding"]
+
+" nabla
+nnoremap <leader>n :lua require("nabla").popup()<CR>
+
+" no mouse
+" set mouse=
+" set ttymouse=
