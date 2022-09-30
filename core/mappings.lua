@@ -55,6 +55,11 @@ keymap.set("n", "<space>o", "printf('m`%so<ESC>``', v:count1)", {
   desc = "insert line below",
 })
 
+keymap.set("n", "<leader>t", "<cmd>Telescope <cr>", {
+  silent = true,
+  desc = "insert line below",
+})
+
 keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", {
   expr = true,
   desc = "insert line above",

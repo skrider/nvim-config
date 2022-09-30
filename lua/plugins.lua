@@ -110,9 +110,12 @@ packer.startup {
     use {
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
-      requires = { { "nvim-lua/plenary.nvim" } },
+      requires = {
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+      },
     }
-    -- search emoji and other symbols
+
     use { "nvim-telescope/telescope-symbols.nvim", after = "telescope.nvim" }
 
     -- A list of colorscheme plugin you may want to try. Find what suits you.
@@ -185,7 +188,6 @@ packer.startup {
 
     -- Snippet engine and snippet template
     use { "SirVer/ultisnips", event = "InsertEnter" }
-    use { "honza/vim-snippets", after = "ultisnips" }
 
     -- (sk) Pandoc
     use { "vim-pandoc/vim-pandoc", ft = { "tex" } }
