@@ -188,6 +188,7 @@ packer.startup {
 
     -- Snippet engine and snippet template
     use { "SirVer/ultisnips", event = "InsertEnter" }
+    use { "skrider/vim-snippets", after = "ultisnips" }
 
     -- (sk) Pandoc
     use { "vim-pandoc/vim-pandoc", ft = { "tex" } }
