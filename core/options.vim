@@ -186,7 +186,7 @@ set noruler
 syn region math start=/\$\$/ end=/\$\$/
 syn match math '\$[^$].\{-}\$'
 
-set background=light
+set background=dark
 
 " pandoc
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]

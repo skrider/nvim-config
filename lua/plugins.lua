@@ -120,6 +120,8 @@ packer.startup {
 
     -- A list of colorscheme plugin you may want to try. Find what suits you.
     use { "lifepillar/vim-gruvbox8", opt = true }
+    use { "olimorris/onedarkpro.nvim", opt = true }
+    use { "mcchrish/zenbones.nvim", opt = true }
     use { "navarasu/onedark.nvim", opt = true }
     use { "sainnhe/edge", opt = true }
     use { "sainnhe/sonokai", opt = true }
@@ -189,6 +191,12 @@ packer.startup {
     -- Snippet engine and snippet template
     use { "SirVer/ultisnips", event = "InsertEnter" }
     use { "skrider/vim-snippets", after = "ultisnips" }
+
+    -- (sk) firenvim
+    use {
+      'glacambre/firenvim',
+      run = function() vim.fn['firenvim#install'](0) end
+    }
 
     -- (sk) Pandoc
     use { "vim-pandoc/vim-pandoc", ft = { "tex" } }

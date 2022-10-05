@@ -98,5 +98,5 @@ M.test = function()
   vim.cmd([[colorscheme abscs]])
 end
 
-M.solarized()
+vim.cmd([[colorscheme onedark]])
 
