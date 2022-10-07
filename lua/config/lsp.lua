@@ -163,6 +163,8 @@ if utils.executable("bash-language-server") then
   lspconfig.bashls.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
+    filetypes = { "sh", "bash" },
+    autostart = true
   }
 end
 
