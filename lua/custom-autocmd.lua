@@ -75,3 +75,17 @@ api.nvim_create_autocmd("VimResized", {
   desc = "autoresize windows on resizing operation",
   command = "wincmd =",
 })
+
+-- (sk) Run lsp when editing shell file
+api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = "*.sh",
+  group = api.nvim_create_augroup("bashls_force_start", { clear = true }),
+  callback = function()
+    local config = require('lspconfig.configs')['bashls']
+    if config then
+      config.launch()
+      return
+    end
+  end,
+})
+
