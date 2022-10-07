@@ -72,12 +72,6 @@ packer.startup {
 
     use { "machakann/vim-swap", event = "VimEnter" }
 
-    -- IDE for Lisp
-    if utils.executable("sbcl") then
-      -- use 'kovisoft/slimv'
-      use { "vlime/vlime", rtp = "vim/", ft = { "lisp" } }
-    end
-
     -- Super fast buffer jump
     use {
       "phaazon/hop.nvim",
@@ -96,16 +90,6 @@ packer.startup {
       keys = { { "n", "*" }, { "n", "#" }, { "n", "n" }, { "n", "N" } },
       config = [[require('config.hlslens')]],
     }
-
-    -- Stay after pressing * and search selected text
-    use { "haya14busa/vim-asterisk", event = "VimEnter" }
-
-    -- File search, tag search and more
-    if vim.g.is_win then
-      use { "Yggdroot/LeaderF", cmd = "Leaderf" }
-    else
-      use { "Yggdroot/LeaderF", cmd = "Leaderf", run = ":LeaderfInstallCExtension" }
-    end
 
     use {
       "nvim-telescope/telescope.nvim",
@@ -149,12 +133,6 @@ packer.startup {
       cond = firenvim_not_active,
       config = [[require('config.bufferline')]] }
 
-    -- fancy start screen
-    use { "glepnir/dashboard-nvim", event = "VimEnter",
-      cond = firenvim_not_active,
-      config = [[require('config.dashboard-nvim')]]
-    }
-
     use {
       "lukas-reineke/indent-blankline.nvim",
       event = "VimEnter",
@@ -175,13 +153,6 @@ packer.startup {
       end,
     }
 
-    -- For Windows and Mac, we can open an URL in the browser. For Linux, it may
-    -- not be possible since we maybe in a server which disables GUI.
-    if vim.g.is_win or vim.g.is_mac then
-      -- open URL in browser
-      use { "tyru/open-browser.vim", event = "VimEnter" }
-    end
-
     -- Only install these plugins if ctags are installed on the system
     if utils.executable("ctags") then
       -- show file tags in vim window
@@ -197,10 +168,6 @@ packer.startup {
       'glacambre/firenvim',
       run = function() vim.fn['firenvim#install'](0) end
     }
-
-    -- (sk) Pandoc
-    use { "vim-pandoc/vim-pandoc", ft = { "tex" } }
-    use { "vim-pandoc/vim-pandoc-syntax", ft = { "tex" } }
 
     -- Automatic insertion and deletion of a pair of characters
     use { "Raimondi/delimitMate", event = "InsertEnter" }
@@ -270,6 +237,10 @@ packer.startup {
 
     -- Pandoc
 
+    -- (sk) Pandoc
+    use { "vim-pandoc/vim-pandoc", ft = { "tex", "md", "markdown" } }
+    use { "vim-pandoc/vim-pandoc-syntax", ft = { "tex", "md", "markdown" } }
+
     -- Vim tabular plugin for manipulate tabular, required by markdown plugins
     use { "godlygeek/tabular", cmd = { "Tabularize" } }
 
@@ -307,35 +278,12 @@ packer.startup {
     -- Modern matchit implementation
     use { "andymass/vim-matchup", event = "VimEnter" }
 
-    -- Smoothie motions
-    use {
-      "karb94/neoscroll.nvim",
-      event = "VimEnter",
-      config = function()
-        vim.defer_fn(function()
-          require("config.neoscroll")
-        end, 2000)
-      end,
-    }
-
     use { "tpope/vim-scriptease", cmd = { "Scriptnames", "Message", "Verbose" } }
 
     -- Asynchronous command execution
     use { "skywind3000/asyncrun.vim", opt = true, cmd = { "AsyncRun" } }
 
     use { "cespare/vim-toml", ft = { "toml" }, branch = "main" }
-
-    -- Edit text area in browser using nvim
-    if vim.g.is_win or vim.g.is_mac then
-      use {
-        "glacambre/firenvim",
-        run = function()
-          fn["firenvim#install"](0)
-        end,
-        opt = true,
-        setup = [[vim.cmd('packadd firenvim')]],
-      }
-    end
 
     -- Debugger plugin
     if vim.g.is_win or vim.g.is_linux then
@@ -365,13 +313,6 @@ packer.startup {
 
     -- show and trim trailing whitespaces
     use { "jdhao/whitespace.nvim", event = "VimEnter" }
-
-    -- file explorer
-    use {
-      "kyazdani42/nvim-tree.lua",
-      requires = { "kyazdani42/nvim-web-devicons" },
-      config = [[require('config.nvim-tree')]],
-    }
 
     use { "ii14/emmylua-nvim", ft = "lua" }
 
