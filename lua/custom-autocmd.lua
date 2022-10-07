@@ -11,7 +11,7 @@ api.nvim_create_autocmd({ "BufRead" }, {
   group = api.nvim_create_augroup("non_utf8_file", { clear = true }),
   callback = function()
     if vim.bo.fileencoding ~= "utf-8" then
-      vim.notify("File not in UTF-8 format!", vim.log.levels.WARN, { title = "nvim-config" })
+      vim.notify("File not in UTF-8 format!", vim.log.levels.WARN, { title = "GNU ed" })
     end
   end,
 })
@@ -55,7 +55,7 @@ api.nvim_create_autocmd({ "FileChangedShellPost" }, {
   pattern = "*",
   group = "auto_read",
   callback = function()
-    vim.notify("File changed on disk. Buffer reloaded!", vim.log.levels.WARN, { title = "nvim-config" })
+    vim.notify("File changed on disk. Buffer reloaded!", vim.log.levels.WARN, { title = "GNU ed" })
   end,
 })
 
