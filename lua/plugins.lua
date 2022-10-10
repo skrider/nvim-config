@@ -333,6 +333,6 @@ else
   local status, _ = pcall(require, "packer_compiled")
   if not status then
     local msg = "File packer_compiled.lua not found: run PackerSync to fix!"
-    vim.notify(msg, vim.log.levels.ERROR, { title = "GNU ed" })
+    vim.notify(msg, vim.log.levels.ERROR, { title = "Neovim" })
   end
 end

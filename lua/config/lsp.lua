@@ -83,7 +83,7 @@ local custom_attach = function(client, bufnr)
 
   if vim.g.logging_level == "debug" then
     local msg = string.format("Language server %s started!", client.name)
-    vim.notify(msg, vim.log.levels.DEBUG, { title = "GNU ed" })
+    vim.notify(msg, vim.log.levels.DEBUG, { title = "Neovim" })
   end
 end
 
@@ -114,13 +114,13 @@ if utils.executable("pylsp") then
     capabilities = capabilities,
   }
 else
-  vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "GNU ed" })
+  vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "Neovim" })
 end
 
 if utils.executable("texlab") then
   lspconfig.texlab.setup{}
 else
-  vim.notify("texlab not found!", vim.log.levels.WARN, { title = "GNU ed" })
+  vim.notify("texlab not found!", vim.log.levels.WARN, { title = "Neovim" })
 end
 
 -- if utils.executable('pyright') then
@@ -142,7 +142,7 @@ if utils.executable("clangd") then
     },
   }
 else
-  vim.notify("clangd not found!", vim.log.levels.WARN, { title = "GNU ed" })
+  vim.notify("clangd not found!", vim.log.levels.WARN, { title = "Neovim" })
 end
 
 -- set up vim-language-server
@@ -155,7 +155,7 @@ if utils.executable("vim-language-server") then
     capabilities = capabilities,
   }
 else
-  vim.notify("vim-language-server not found!", vim.log.levels.WARN, { title = "GNU ed" })
+  vim.notify("vim-language-server not found!", vim.log.levels.WARN, { title = "Neovim" })
 end
 
 -- set up bash-language-server

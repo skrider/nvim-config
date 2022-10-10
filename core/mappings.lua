@@ -98,7 +98,7 @@ keymap.set("n", "<leader>sv", "", {
       update $MYVIMRC
       source $MYVIMRC
     ]])
-    vim.notify("Nvim config successfully reloaded!", vim.log.levels.INFO, { title = "GNU ed" })
+    vim.notify("Nvim config successfully reloaded!", vim.log.levels.INFO, { title = "Neovim" })
   end,
 })
 
