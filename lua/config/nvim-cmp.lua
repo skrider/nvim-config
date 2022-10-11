@@ -25,7 +25,7 @@ cmp.setup {
       end
     end,
     ["<Tab>"] = cmp.mapping.confirm { select = true },
-    ["<C-h>"] = cmp.mapping.abort(),
+--  ["<C-h>"] = cmp.mapping.abort(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
   },
