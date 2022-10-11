@@ -16,6 +16,16 @@ api.nvim_create_autocmd({ "BufRead" }, {
   end,
 })
 
+-- (sk) format js/ts files on save
+api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = "*.tsx,*.ts,*.jsx,*.js",
+  group = api.nvim_create_augroup("eslint_autoformat", { clear = true }),
+  callback = function()
+    vim.cmd("EslintFixAll")
+  end,
+})
+
+
 -- highlight yanked region, see `:h lua-highlight`
 api.nvim_create_autocmd({ "TextYankPost" }, {
   pattern = "*",

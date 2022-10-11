@@ -119,6 +119,8 @@ end
 
 lspconfig.tsserver.setup{}
 
+lspconfig.eslint.setup{}
+
 if utils.executable("texlab") then
   lspconfig.texlab.setup{}
 else
