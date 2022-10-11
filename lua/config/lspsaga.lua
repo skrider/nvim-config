@@ -1,5 +1,7 @@
 local saga = require("lspsaga")
 
+-- some good docs are https://vimawesome.com/plugin/lspsaga-nvim
+
 saga.init_lsp_saga({
   -- "single" | "double" | "rounded" | "bold" | "plus"
   border_style = "single",
