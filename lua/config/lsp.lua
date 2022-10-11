@@ -117,6 +117,8 @@ else
   vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "Neovim" })
 end
 
+lspconfig.tsserver.setup{}
+
 if utils.executable("texlab") then
   lspconfig.texlab.setup{}
 else
