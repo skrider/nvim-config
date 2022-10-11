@@ -122,6 +122,18 @@ packer.startup {
 
     use { "kyazdani42/nvim-web-devicons", event = "VimEnter" }
 
+    -- Warnings
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons"
+    }
+
+    -- LSP goodness
+    use({
+      "glepnir/lspsaga.nvim",
+      branch = "main"
+    })
+
     use {
       "nvim-lualine/lualine.nvim",
       event = "VimEnter",
