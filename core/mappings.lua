@@ -70,11 +70,6 @@ keymap.set("n", "<space>T", "<cmd>TroubleToggle <cr>", {
   desc = "open Trouble",
 })
 
-keymap.set("n", "<space>d", "<cmd>Lspsaga show_line_diagnostics<cr>", {
-  silent = true,
-  desc = "open Trouble",
-})
-
 -- Move the cursor based on physical lines, not the actual lines.
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
