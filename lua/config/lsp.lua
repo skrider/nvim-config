@@ -56,9 +56,8 @@ local custom_attach = function(client, bufnr)
       end
 
       local cursor_pos = api.nvim_win_get_cursor(0)
-      if
-        (cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
-        and #vim.diagnostic.get() > 0
+      if (cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
+          and #vim.diagnostic.get() > 0
       then
         vim.diagnostic.open_float(nil, float_opts)
       end
@@ -117,12 +116,12 @@ else
   vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "Neovim" })
 end
 
-lspconfig.tsserver.setup{}
+lspconfig.tsserver.setup {}
 
-lspconfig.eslint.setup{}
+lspconfig.eslint.setup {}
 
 if utils.executable("texlab") then
-  lspconfig.texlab.setup{}
+  lspconfig.texlab.setup {}
 else
   vim.notify("texlab not found!", vim.log.levels.WARN, { title = "Neovim" })
 end
@@ -211,8 +210,8 @@ fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHin
 
 -- global config for diagnostic
 vim.diagnostic.config {
-  underline = false,
-  virtual_text = false,
+  underline = true,
+  virtual_text = true,
   signs = true,
   severity_sort = true,
 }
