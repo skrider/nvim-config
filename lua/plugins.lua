@@ -212,6 +212,9 @@ packer.startup {
     -- Auto format tools
     use { "sbdchd/neoformat", cmd = { "Neoformat" } }
 
+    -- Peek into zip files
+    use { "lbrayner/vim-rzip" }
+
     -- Git command inside vim
     use { "tpope/vim-fugitive", event = "User InGitRepo", config = [[require('config.fugitive')]] }
 
@@ -237,6 +240,9 @@ packer.startup {
 
     -- Another markdown plugin
     use { "preservim/vim-markdown", ft = { "markdown" } }
+
+    -- (sk) markdown paste image
+    use { "ekickx/clipboard-image.nvim", ft = { "markdown" } }
 
     -- Faster footnote generation
     use { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } }
