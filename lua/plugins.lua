@@ -241,9 +241,6 @@ packer.startup {
     -- Another markdown plugin
     use { "preservim/vim-markdown", ft = { "markdown" } }
 
-    -- (sk) markdown paste image
-    use { "ekickx/clipboard-image.nvim", ft = { "markdown" } }
-
     -- Faster footnote generation
     use { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } }
 
