@@ -1,5 +1,6 @@
 local keymap = vim.keymap
 local api = vim.api
+local uv = vim.loop
 
 -- Save key strokes (now we do not need to press shift to enter command mode).
 keymap.set({ "n", "x" }, ";", ":")
@@ -95,16 +96,15 @@ keymap.set("n", "<leader>ev", "<cmd>tabnew $MYVIMRC <bar> tcd %:h<cr>", {
   desc = "open init.lua",
 })
 
-keymap.set("n", "<leader>sv", "", {
-  silent = true,
-  desc = "reload init.lua",
-  callback = function()
-    vim.cmd([[
+keymap.set("n", "<leader>sv", function()
+  vim.cmd([[
       update $MYVIMRC
       source $MYVIMRC
     ]])
-    vim.notify("Nvim config successfully reloaded!", vim.log.levels.INFO, { title = "Neovim" })
-  end,
+  vim.notify("Nvim config successfully reloaded!", vim.log.levels.INFO, { title = "Neovim" })
+  end, {
+  silent = true,
+  desc = "reload init.lua",
 })
 
 -- Reselect the text that has just been pasted, see also https://stackoverflow.com/a/4317090/6064933.
@@ -183,25 +183,23 @@ keymap.set({ "x", "o" }, "iu", "<cmd>call text_obj#URL()<cr>", { desc = "URL tex
 keymap.set({ "x", "o" }, "iB", "<cmd>call text_obj#Buffer()<cr>", { desc = "buffer text object" })
 
 -- Do not move my cursor when joining lines.
-keymap.set("n", "J", "", {
-  desc = "join line",
-  callback = function()
-    vim.cmd([[
+keymap.set("n", "J", function()
+  vim.cmd([[
       normal! mzJ`z
       delmarks z
     ]])
-  end,
+end, {
+  desc = "join line",
 })
 
-keymap.set("n", "gJ", "mzgJ`z", {
-  desc = "join visual lines",
-  callback = function()
-    -- we must use `normal!`, otherwise it will trigger recursive mapping
-    vim.cmd([[
+keymap.set("n", "gJ", function()
+  -- we must use `normal!`, otherwise it will trigger recursive mapping
+  vim.cmd([[
       normal! zmgJ`z
       delmarks z
     ]])
-  end,
+end, {
+  desc = "join visual lines",
 })
 
 -- Break inserted text into smaller undo units when we insert some punctuation chars.
@@ -236,3 +234,22 @@ keymap.set("c", "<C-A>", "<HOME>")
 
 -- Delete the character to the right of the cursor
 keymap.set("i", "<C-D>", "<DEL>")
+
+keymap.set("n", "<leader>cb", function()
+  local cnt = 0
+  local blink_times = 7
+  local timer = uv.new_timer()
+
+  timer:start(0, 100, vim.schedule_wrap(function()
+    vim.cmd[[
+      set cursorcolumn!
+      set cursorline!
+    ]]
+
+    if cnt == blink_times then
+      timer:close()
+    end
+
+    cnt = cnt + 1
+  end))
+end)

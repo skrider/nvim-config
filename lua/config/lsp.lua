@@ -33,11 +33,8 @@ local custom_attach = function(client, bufnr)
   end, { desc = "list workspace folder" })
 
   -- Set some key bindings conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    map("n", "<space>f", vim.lsp.buf.formatting_sync, { desc = "format code" })
-  end
-  if client.resolved_capabilities.document_range_formatting then
-    map("x", "<space>f", vim.lsp.buf.range_formatting, { desc = "range format" })
+  if client.server_capabilities.documentFormattingProvider then
+    map("n", "<space>f", vim.lsp.buf.format, { desc = "format code" })
   end
 
   api.nvim_create_autocmd("CursorHold", {
@@ -67,17 +64,29 @@ local custom_attach = function(client, bufnr)
   })
 
   -- The blow command will highlight the current variable and its usages in the buffer.
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     vim.cmd([[
       hi! link LspReferenceRead Visual
       hi! link LspReferenceText Visual
       hi! link LspReferenceWrite Visual
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
     ]])
+
+    local gid = api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+    api.nvim_create_autocmd("CursorHold" , {
+      group = gid,
+      buffer = bufnr,
+      callback = function ()
+        lsp.buf.document_highlight()
+      end
+    })
+
+    api.nvim_create_autocmd("CursorMoved" , {
+      group = gid,
+      buffer = bufnr,
+      callback = function ()
+        lsp.buf.clear_references()
+      end
+    })
   end
 
   if vim.g.logging_level == "debug" then
@@ -86,9 +95,7 @@ local custom_attach = function(client, bufnr)
   end
 end
 
-local capabilities = lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require("lspconfig")
 
