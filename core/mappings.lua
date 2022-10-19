@@ -71,6 +71,11 @@ keymap.set("n", "<space>T", "<cmd>TroubleToggle <cr>", {
   desc = "open Trouble",
 })
 
+keymap.set("n", "<leader>C", "<cmd>Copilot popup <cr>", {
+  silent = true,
+  desc = "open Github Copilot popup",
+})
+
 -- Move the cursor based on physical lines, not the actual lines.
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
