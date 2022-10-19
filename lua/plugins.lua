@@ -104,7 +104,6 @@ packer.startup {
 
     -- A list of colorscheme plugin you may want to try. Find what suits you.
     use { "lifepillar/vim-gruvbox8", opt = true }
-    use { "olimorris/onedarkpro.nvim", opt = true }
     use { "mcchrish/zenbones.nvim", opt = true }
     use { "navarasu/onedark.nvim", opt = true }
     use { "sainnhe/edge", opt = true }
@@ -243,6 +242,7 @@ packer.startup {
 
     -- Faster footnote generation
     use { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } }
+    use { "jessfraz/openai.vim", ft = { "markdown", "md", "tex" } }
 
     -- Pandoc
 
