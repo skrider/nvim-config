@@ -79,6 +79,11 @@ packer.startup {
       config = [[require('config.treesitter')]],
     }
 
+    use {
+      "~/.dotfiles/custom-nvim-plugins/reply.vim",
+      cmd = "Repl"
+    }
+
     -- Python indent (follows the PEP8 style)
     use { "Vimjas/vim-python-pep8-indent", ft = { "python" } }
 
@@ -181,7 +186,7 @@ packer.startup {
 
     -- Snippet engine and snippet template
     use { "SirVer/ultisnips", event = "InsertEnter" }
-    use { "skrider/vim-snippets", after = "ultisnips" }
+    use { "~/.dotfiles/custom-nvim-plugins/vim-snippets", after = "ultisnips" }
 
     -- (sk) firenvim
     use {

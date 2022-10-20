@@ -77,10 +77,18 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {
   desc = "Telescope help_tags",
 })
 
--- vim.keymap.set('n', 'ff', builtin.find_files, {})
--- vim.keymap.set('n', 'fg', builtin.live_grep, {})
--- vim.keymap.set('n', 'fb', builtin.buffers, {})
--- vim.keymap.set('n', 'fh', builtin.help_tags, {})
+keymap.set("n", "<leader>Rn", "<cmd>Repl node<cr>", {
+  silent = true,
+  desc = "Open node repl",
+})
+keymap.set("n", "<leader>Ry", "<cmd>Repl yarnnode<cr>", {
+  silent = true,
+  desc = "Open node repl",
+})
+keymap.set("n", "<leader>Rs", "<cmd>ReplSend<cr>", {
+  silent = true,
+  desc = "Send to repl",
+})
 
 keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", {
   expr = true,
