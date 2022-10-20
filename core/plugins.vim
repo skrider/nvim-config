@@ -34,12 +34,6 @@ let g:UltiSnipsSnippetDirectories=['UltiSnips']
 """""""""""""""""""""""""" vlime settings """"""""""""""""""""""""""""""""
 command! -nargs=0 StartVlime call jobstart(printf("sbcl --load %s/vlime/lisp/start-vlime.lisp", g:package_home))
 
-"""""""""""""""""""""""""" copilot settings """"""""""""""""""""""""""""""
-let g:copilot_filetypes = {
-    \ '*': v:false,
-    \ 'typescript': v:true,
-    \ }
-
 """"""""""""""""""""""""""""open-browser.vim settings"""""""""""""""""""
 if g:is_win || g:is_mac
   " Disable netrw's gx mapping.

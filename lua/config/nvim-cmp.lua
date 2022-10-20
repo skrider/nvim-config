@@ -32,7 +32,6 @@ cmp.setup {
     { name = "nvim_lsp" }, -- For nvim-lsp
     { name = "ultisnips" }, -- For ultisnips user.
     { name = "path" }, -- for path completion
-    { name = "copilot" },
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "omni" },
     { name = "emoji", insert = true }, -- emoji completion
@@ -50,7 +49,6 @@ cmp.setup {
       menu = {
         nvim_lsp = "[LSP]",
         ultisnips = "[US]",
-        copilot = "[COP]",
         nvim_lua = "[Lua]",
         path = "[Path]",
         buffer = "[Buffer]",

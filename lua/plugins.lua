@@ -51,19 +51,11 @@ packer.startup {
     -- auto-completion engine
     use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvim-cmp')]] }
 
-    -- Copilot
-    use {
-      "github/copilot.vim",
-      after = "cmp-copilot",
-      ft = { "typescript", "javascript", "ts", "js" }
-    }
-
     -- nvim-cmp completion sources
     use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
     use { "hrsh7th/cmp-path", after = "nvim-cmp" }
     use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
     use { "hrsh7th/cmp-omni", after = "nvim-cmp" }
-    use { "hrsh7th/cmp-copilot", after = "nvim-cmp" }
     use { "quangnguyen30192/cmp-nvim-ultisnips", after = { "nvim-cmp", "ultisnips" } }
     if vim.g.is_mac then
       use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
