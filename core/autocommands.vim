@@ -13,6 +13,11 @@ augroup term_settings
   autocmd TermOpen * startinsert
 augroup END
 
+augroup no_spell
+  autocmd!
+  autocmd BufEnter *.md setlocal nospell
+augroup END
+
 " More accurate syntax highlighting? (see `:h syn-sync`)
 augroup accurate_syn_highlight
   autocmd!
