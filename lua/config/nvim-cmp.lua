@@ -31,8 +31,8 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" }, -- For nvim-lsp
     { name = "ultisnips" }, -- For ultisnips user.
-    { name = "copilot" },
     { name = "path" }, -- for path completion
+    { name = "copilot" },
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "omni" },
     { name = "emoji", insert = true }, -- emoji completion
