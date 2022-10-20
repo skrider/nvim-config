@@ -56,17 +56,38 @@ keymap.set("n", "<space>o", "printf('m`%so<ESC>``', v:count1)", {
   desc = "insert line below",
 })
 
-keymap.set("n", "<leader>t", "<cmd>Telescope <cr>", {
+keymap.set("n", "<leader>F", "<cmd>Telescope <cr>", {
   silent = true,
-  desc = "insert line below",
+  desc = "Telescope",
 })
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {
+  silent = true,
+  desc = "Telescope find_files",
+})
+keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {
+  silent = true,
+  desc = "Telescope live_grep",
+})
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {
+  silent = true,
+  desc = "Telescope buffers",
+})
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {
+  silent = true,
+  desc = "Telescope help_tags",
+})
+
+-- vim.keymap.set('n', 'ff', builtin.find_files, {})
+-- vim.keymap.set('n', 'fg', builtin.live_grep, {})
+-- vim.keymap.set('n', 'fb', builtin.buffers, {})
+-- vim.keymap.set('n', 'fh', builtin.help_tags, {})
 
 keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", {
   expr = true,
   desc = "insert line above",
 })
 
-keymap.set("n", "<space>T", "<cmd>TroubleToggle <cr>", {
+keymap.set("n", "<leader>T", "<cmd>TroubleToggle <cr>", {
   silent = true,
   desc = "open Trouble",
 })
