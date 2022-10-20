@@ -262,13 +262,15 @@ packer.startup {
 
     -- Faster footnote generation
     use { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } }
+
+    -- (sk) OpenAI autocomplete
     use { "jessfraz/openai.vim", ft = { "markdown", "md", "tex" } }
 
     -- Pandoc
 
     -- (sk) Pandoc
-    use { "vim-pandoc/vim-pandoc", ft = { "tex", "md", "markdown" } }
-    use { "vim-pandoc/vim-pandoc-syntax", ft = { "tex", "md", "markdown" } }
+    use { "vim-pandoc/vim-pandoc", ft = { "tex", "md", "markdown", "pandoc" } }
+    use { "vim-pandoc/vim-pandoc-syntax", ft = { "tex", "md", "markdown", "pandoc" } }
 
     -- Vim tabular plugin for manipulate tabular, required by markdown plugins
     use { "godlygeek/tabular", cmd = { "Tabularize" } }

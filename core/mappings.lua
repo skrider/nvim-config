@@ -97,12 +97,12 @@ keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", {
 
 keymap.set("n", "<leader>T", "<cmd>TroubleToggle <cr>", {
   silent = true,
-  desc = "open Trouble",
+  desc = "open Trouble panel",
 })
 
-keymap.set("n", "<leader>C", "<cmd>Copilot popup <cr>", {
+keymap.set("n", "<leader>C", "<cmd>Copilot panel<cr>", {
   silent = true,
-  desc = "open Github Copilot popup",
+  desc = "open Github Copilot panel",
 })
 
 -- Move the cursor based on physical lines, not the actual lines.
