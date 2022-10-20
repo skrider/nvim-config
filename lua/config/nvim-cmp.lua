@@ -24,15 +24,14 @@ cmp.setup {
         fallback()
       end
     end,
-    ["<Tab>"] = cmp.mapping.confirm { select = true },
---  ["<C-h>"] = cmp.mapping.abort(),
+    ["<C-Space>"] = cmp.mapping.confirm { select = true },
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
   },
   sources = {
     { name = "nvim_lsp" }, -- For nvim-lsp
     { name = "ultisnips" }, -- For ultisnips user.
-    { name = "copilot" }, -- For ultisnips user.
+    { name = "copilot" },
     { name = "path" }, -- for path completion
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "omni" },
@@ -51,6 +50,7 @@ cmp.setup {
       menu = {
         nvim_lsp = "[LSP]",
         ultisnips = "[US]",
+        copilot = "[COP]",
         nvim_lua = "[Lua]",
         path = "[Path]",
         buffer = "[Buffer]",
