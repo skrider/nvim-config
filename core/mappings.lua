@@ -56,6 +56,7 @@ keymap.set("n", "<space>o", "printf('m`%so<ESC>``', v:count1)", {
   desc = "insert line below",
 })
 
+-- Telescope
 keymap.set("n", "<leader>F", "<cmd>Telescope <cr>", {
   silent = true,
   desc = "Telescope",

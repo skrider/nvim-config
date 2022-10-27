@@ -82,6 +82,9 @@ packer.startup {
     -- Python-related text object
     use { "jeetsukumaran/vim-pythonsense", ft = { "python" } }
 
+    use { "untitled-ai/jupyter_ascending.vim", ft = { "python" } }
+    use { "chrisbra/NrrwRgn", cmd = { "NR", "NW" }, ft = { "python", "markdown" } }
+
     use { "machakann/vim-swap", event = "VimEnter" }
 
     -- Super fast buffer jump
