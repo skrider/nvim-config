@@ -295,11 +295,18 @@ endif
 """"""""""""""""""""""""""""""nvim-gdb settings""""""""""""""""""""""""""""""
 nnoremap <leader>dp :<C-U>GdbStartPDB python -m pdb %<CR>
 
+""""""""""""""""""""""""""""""copilot settings""""""""""""""""""""""""""""""
+let g:copilot_filetypes = {
+      \ '*': v:false,
+      \ 'python': v:true,
+      \ }
+
 """"""""""""""""""""""""""""""nvim-NrrwRgn settings""""""""""""""""""""""""""""""
 let g:nrrw_rgn_wdth = 30
-let g:nrrw_rgn_pad = 5
+let g:nrrw_rgn_pad = 30
 let g:nrrw_custom_options = {}
 let g:nrrw_custom_options['filetype'] = 'pandoc'
+
 """"""""""""""""""""""""""""""wilder.nvim settings""""""""""""""""""""""""""""""
 call timer_start(250, { -> s:wilder_init() })
 

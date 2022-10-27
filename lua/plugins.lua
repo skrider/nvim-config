@@ -48,6 +48,9 @@ packer.startup {
     use { "wbthomason/packer.nvim", opt = true }
 
     use { "onsails/lspkind-nvim", event = "VimEnter" }
+
+    use { "github/copilot.vim", ft = { "python" } }
+
     -- auto-completion engine
     use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvim-cmp')]] }
 

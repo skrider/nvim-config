@@ -7,6 +7,12 @@ nmap <buffer> <space>xa <Plug>JupyterExecuteAll
 
 nnoremap <buffer> nc ?%%<cr>jV/%%<cr>k
 
+let b:nrrw_aucmd_create = "silent %s/^#.//g"
+let b:nrrw_aucmd_close = "silent %s/^/# /g"
+
+setlocal comments+=f:#
+setlocal formatoptions+=r
+
 " Do not wrap Python source code.
 set nowrap
 set sidescroll=5
