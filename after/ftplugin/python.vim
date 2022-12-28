@@ -12,6 +12,7 @@ let b:nrrw_aucmd_close = "silent %s/^/# /g"
 
 setlocal comments+=f:#
 setlocal formatoptions+=r
+setlocal formatoptions-=a
 
 " Do not wrap Python source code.
 set nowrap

@@ -298,6 +298,8 @@ nnoremap <leader>dp :<C-U>GdbStartPDB python -m pdb %<CR>
 """"""""""""""""""""""""""""""copilot settings""""""""""""""""""""""""""""""
 let g:copilot_filetypes = {
       \ '*': v:false,
+      \ 'sh': v:true,
+      \ 'shell': v:true,
       \ 'python': v:true,
       \ }
 

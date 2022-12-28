@@ -73,6 +73,14 @@ keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {
   silent = true,
   desc = "Telescope buffers",
 })
+keymap.set("n", "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>", {
+  silent = true,
+  desc = "Telescope swoop",
+})
+keymap.set("n", "<leader>ft", "<cmd>Telescope treesitter<cr>", {
+  silent = true,
+  desc = "Telescope treesitter",
+})
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {
   silent = true,
   desc = "Telescope help_tags",
