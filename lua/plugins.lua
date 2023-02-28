@@ -85,9 +85,6 @@ packer.startup {
     -- Python-related text object
     use { "jeetsukumaran/vim-pythonsense", ft = { "python" } }
 
-    use { "untitled-ai/jupyter_ascending.vim", ft = { "python" } }
-    use { "chrisbra/NrrwRgn", cmd = { "NR", "NW" }, ft = { "python", "markdown" } }
-
     use { "machakann/vim-swap", event = "VimEnter" }
 
     -- Super fast buffer jump
@@ -186,12 +183,6 @@ packer.startup {
     use { "SirVer/ultisnips", event = "InsertEnter" }
     use { "~/.dotfiles/custom-nvim-plugins/vim-snippets", after = "ultisnips" }
 
-    -- (sk) firenvim
-    use {
-      'glacambre/firenvim',
-      run = function() vim.fn['firenvim#install'](0) end
-    }
-
     -- Automatic insertion and deletion of a pair of characters
     use { "Raimondi/delimitMate", event = "InsertEnter" }
 
@@ -203,9 +194,6 @@ packer.startup {
 
     -- Autosave files on certain events
     use { "907th/vim-auto-save", event = "InsertEnter" }
-
-    -- Show undo history visually
-    use { "simnalamburt/vim-mundo", cmd = { "MundoToggle", "MundoShow" } }
 
     -- Manage your yank history
     if vim.g.is_win or vim.g.is_mac then
@@ -259,10 +247,7 @@ packer.startup {
     use { "preservim/vim-markdown", ft = { "markdown" } }
 
     -- Faster footnote generation
-    use { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } }
-
-    -- (sk) OpenAI autocomplete
-    use { "jessfraz/openai.vim", ft = { "markdown", "md", "tex" } }
+    -- use { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } }
 
     -- Pandoc
 
