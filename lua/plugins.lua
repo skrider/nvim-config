@@ -40,6 +40,12 @@ local firenvim_not_active = function()
   return not vim.g.started_by_firenvim
 end
 
+packer.init({
+  git = {
+    clone_timeout = 180
+  }
+})
+
 packer.startup {
   function(use)
     -- it is recommended to put impatient.nvim before any other plugins

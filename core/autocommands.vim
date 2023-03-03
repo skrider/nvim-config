@@ -18,6 +18,10 @@ augroup no_spell
   autocmd BufEnter *.md setlocal nospell
 augroup END
 
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
 " More accurate syntax highlighting? (see `:h syn-sync`)
 augroup accurate_syn_highlight
   autocmd!
